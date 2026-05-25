@@ -22,7 +22,9 @@
       <div class="flex-1 h-full relative min-w-0 bg-gray-100">
         <MapViewer :waypoints="waypoints" :is-closed-loop="missionConfig.isClosedLoop"
           :is-patrol-mode="missionConfig.routeType === 'mapping' || missionConfig.routeType === 'patrol'"
-          :scan-path="scanPath" @map-click="onMapClick" class="h-full w-full absolute inset-0" />
+          :is-waypoint-editable="missionConfig.routeType === 'waypoint'"
+          :scan-path="scanPath" @map-click="onMapClick" @update:waypoints="waypoints = $event"
+          class="h-full w-full absolute inset-0" />
       </div>
     </div>
 
